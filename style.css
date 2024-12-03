@@ -1,90 +1,73 @@
-/* Основной фон */
+/* Основные стили для страницы */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(135deg, #ff99cc, #ff66b2);
+    background-color: #ff66b2;
     color: white;
     font-family: 'Arial', sans-serif;
     font-size: 3rem;
     text-align: center;
     font-weight: bold;
-    overflow: hidden;
+    transition: background-color 0.5s ease;
 }
 
-/* Анимация текста */
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.1);
-        opacity: 0.8;
-    }
-}
-
-/* Элемент текста */
 h1 {
-    animation: pulse 2s infinite;
+    margin-bottom: 20px;
 }
 
-/* Кнопка */
+/* Стиль для кнопок */
 button {
     padding: 15px 30px;
-    margin-top: 20px;
     font-size: 1.5rem;
-    font-weight: bold;
-    color: #ff99cc;
-    background-color: white;
+    color: white;
+    background-color: #ff66b2;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    margin: 10px;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #ff66b2;
+    background-color: #ff99cc;
     transform: scale(1.1);
 }
 
-/* Сердце */
-.heart {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px;
-    height: 90px;
-    background-color: red;
-    clip-path: polygon(50% 0%, 100% 35%, 85% 100%, 50% 85%, 15% 100%, 0% 35%);
-    animation: pulse 2s infinite;
-}
-/* Скрываем модальное окно */
-.hidden {
-    display: none;
+/* Контейнер для всех элементов */
+.container {
+    position: relative;
 }
 
-/* Общий стиль для модального окна */
+/* Стиль для модального окна */
 #modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон */
+    background-color: rgba(0, 0, 0, 0.8); /* Прозрачный фон */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Поверх всех элементов */
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+}
+
+/* Показ модального окна */
+#modal.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* Контент модального окна */
 .modal-content {
     background-color: white;
-    padding: 20px 40px;
+    padding: 30px 40px;
     border-radius: 10px;
     text-align: center;
     color: #ff66b2;
@@ -93,19 +76,18 @@ button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Кнопка закрытия */
-.modal-content button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: white;
-    background-color: #ff66b2;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+/* Анимация появления для модального окна */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
-.modal-content button:hover {
-    background-color: #ff99cc;
+.modal-content {
+    animation: slideIn 0.5s ease-in-out;
 }

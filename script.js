@@ -1,34 +1,25 @@
+// Получаем элементы
+const openBtn = document.getElementById("openBtn");
+const modal = document.getElementById("modal");
+const closeBtn = document.getElementById("closeBtn");
+const likeBtn = document.getElementById("likeBtn");
+
 // Функция для отображения модального окна
 function showMessage() {
-    console.log("Кнопка нажата!"); // Проверка в консоли
-    const modal = document.getElementById("modal");
-    if (modal) {
-        modal.classList.remove("hidden"); // Показываем модальное окно
-        console.log("Модальное окно показано");
-    } else {
-        console.error("Модальное окно не найдено");
-    }
+    modal.classList.add("show"); // Показываем модальное окно
 }
 
 // Функция для скрытия модального окна
 function hideMessage() {
-    console.log("Закрыть нажато!"); // Проверка в консоли
-    const modal = document.getElementById("modal");
-    if (modal) {
-        modal.classList.add("hidden"); // Скрываем модальное окно
-        console.log("Модальное окно скрыто");
-    } else {
-        console.error("Модальное окно не найдено");
-    }
+    modal.classList.remove("show"); // Скрываем модальное окно
 }
 
-// Добавляем обработчик для кнопки закрытия после загрузки страницы
-window.onload = function() {
-    const closeBtn = document.getElementById("closeBtn");
-    if (closeBtn) {
-        closeBtn.addEventListener("click", hideMessage); // Назначаем событие на кнопку "Закрыть"
-        console.log("Обработчик на кнопку 'Закрыть' добавлен");
-    } else {
-        console.error("Кнопка 'Закрыть' не найдена");
-    }
-};
+// Функция для действия при нажатии кнопки "Ты тоже меня любишь?"
+function loveMessage() {
+    alert("Да, я тебя люблю! 💖"); // Сообщение на подтверждение
+}
+
+// Назначаем обработчики для кнопок
+openBtn.addEventListener("click", showMessage); // Открыть модальное окно
+closeBtn.addEventListener("click", hideMessage); // Закрыть модальное окно
+likeBtn.addEventListener("click", loveMessage); // Ответить на вопрос с любовью
