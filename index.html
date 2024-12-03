@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <!-- Заголовок -->
+  <div>
         <h1>АЛИНА, Я ТЕБЯ ЛЮБЛЮ!</h1>
-        <!-- Кнопка -->
         <button onclick="showMessage()">Нажми меня</button>
-        <!-- Сердце -->
-        <div class="heart"></div>
+        <!-- Скрытое модальное окно -->
+        <div id="modal" class="hidden">
+            <div class="modal-content">
+                Ты самая прекрасная девушка в мире, Алина! ❤️
+                <button onclick="hideMessage()">Закрыть</button>
+            </div>
+        </div>
     </div>
-    <!-- Подключаем JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
