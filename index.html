@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Алина, я тебя люблю!</title>
-    <!-- Подключаем CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Подключение CSS -->
 </head>
 <body>
-  <div>
+    <div>
         <h1>АЛИНА, Я ТЕБЯ ЛЮБЛЮ!</h1>
-        <button onclick="showMessage()">Нажми меня</button>
-        <!-- Скрытое модальное окно -->
+        <button onclick="showMessage()">Нажми меня</button> <!-- Кнопка для отображения окна -->
+
+        <!-- Модальное окно, по умолчанию скрыто -->
         <div id="modal" class="hidden">
             <div class="modal-content">
                 Ты самая прекрасная девушка в мире, Алина! ❤️
-                <button onclick="hideMessage()">Закрыть</button>
+                <button id="closeBtn">Закрыть</button> <!-- Кнопка для закрытия окна -->
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <script src="script.js"></script> <!-- Подключение JavaScript -->
 </body>
 </html>
